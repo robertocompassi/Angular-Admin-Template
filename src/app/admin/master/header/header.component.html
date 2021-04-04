@@ -1,0 +1,17 @@
+<div class="navbar">
+  <div class="mostrar-menu" (click)="toggleSidebar()">
+    <img src="/assets/images/menu-button.svg" alt="">Menu</div>
+  <ul class="navbar-nav navbar-nav-right">
+      <li class="nav-item dropdown-parent d-none d-sm-block">
+          <a class="nav-link" (click)="openNavbarDropdown($event)">
+              <span class="profile-text">Olá, {{user.Name}} !</span>
+              <img class="img-profile" src="{{user.ProfilePicture}}" alt="Profile image">
+          </a>
+          <div class="dropdown-menu">
+              <ul>
+                  <li><a (click)="logout()">Logout </a></li>
+              </ul>
+          </div>
+      </li>
+  </ul>
+</div>

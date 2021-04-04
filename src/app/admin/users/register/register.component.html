@@ -1,0 +1,104 @@
+<app-card *ngIf="!showLoadingMsg && !showSuccess && !showInvalidUser">
+  <div class="admin-header">
+    <div class="admin-header__title-page">
+      <div class="row">
+        <div class="col-12 col-md-12">
+          <h1>Editar Usuário</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="admin-header-breadcrumb">
+    <ul>
+      <li><a routerLink="/admin" routerLinkActive="router-link-active">Administração</a></li>
+      <li><a routerLink="/admin/usuarios" routerLinkActive="router-link-active">Usuários</a></li>
+      <li><a routerLinkActive="router-link-active">Editar</a></li>
+    </ul>
+  </div>
+
+  <div class="col-md-10 offset-md-1">
+    <!--End Breadcrumb -->
+    <form [formGroup]="UserForm" (ngSubmit)="onSubmit()" #form>
+      <div class="form">
+        <div class="box-error" *ngIf="UserForm.invalid && submitted">
+          Por favor, verifique se todos os campos foram preenchidos corretamente.
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <h3>Dados pessoais</h3>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12 col-md-3">
+            <img src="{{ImgProfile}}" class="avatar">
+          </div>
+          <div class="col-12 col-md-9">
+            <!--Start Row -->
+            <div class="row">
+              <div class="col-12 col-md-6">
+                <div class="form-group">
+                  <input type="text" formControlName="firstName" class="form-control">
+                  <span class="highlight"></span>
+                  <span class="bar"></span>
+                  <label>Nome*</label>
+                </div>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <div class="form-group">
+
+                  <input type="text" formControlName="lastName" class="form-control">
+                  <span class="highlight"></span>
+                  <span class="bar"></span>
+                  <label>Sobrenome*</label>
+                </div>
+              </div>
+            </div>
+            <!--End Row -->
+
+            <div class="row">
+              <div class="col-12 col-md-6">
+                <div class="form-group">
+                  <input type="text" formControlName="email" class="form-control">
+                  <span class="highlight"></span>
+                  <span class="bar"></span>
+                  <label>E-mail*</label>
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="form-group">
+                  <input type="text" formControlName="job" class="form-control">
+                  <span class="highlight"></span>
+                  <span class="bar"></span>
+                  <label>Emprego</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row row-buttons">
+          <div class="col-12">
+            <button type="submit" class="btn btn-success btn-fw">Salvar</button>
+            <button type="button" class="btn btn-outline-primary btn-fw" routerLink="/admin/usuarios">Cancelar</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+</app-card>
+<app-loading-spinner *ngIf="showLoadingMsg">Aguarde...</app-loading-spinner>
+
+<div class="success-submited animated fadeIn" *ngIf="showSuccess">
+  <img src="/assets/images/checked.svg" class="animated fadeInDown">
+  <h3>O Usuário {{UserUpdate.Name}} foi atualizado! </h3>
+  <p>Os dados do usuário foram salvos com sucesso na API.</p>
+  <button type="button" class="btn btn-primary btn-fw" routerLink="/admin/usuarios">Ok</button>
+</div>
+
+<div class="success-submited animated fadeIn" *ngIf="showInvalidUser">
+  <h3>Usuário inválido </h3>
+  <button type="button" class="btn btn-primary btn-fw" routerLink="/admin/usuarios">Voltar para lista</button>
+</div>
+<app-generic-erro-dialog *ngIf="showGenericError"></app-generic-erro-dialog>

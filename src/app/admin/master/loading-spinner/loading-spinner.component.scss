@@ -1,0 +1,22 @@
+p{
+  text-align: center;
+  font-size: 1.4rem;
+  margin-top: 2rem;
+  color: #404040;
+}
+
+
+.spinner {
+  margin: 0 auto;
+  height: 48px;
+  width: 48px;
+  animation: rotate 0.8s infinite linear;
+  border: 8px solid #006085;
+  border-right-color: transparent;
+  border-radius: 50%;
+}
+
+@keyframes rotate {
+  0%    { transform: rotate(0deg); }
+  100%  { transform: rotate(360deg); }
+}

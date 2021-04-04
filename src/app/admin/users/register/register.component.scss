@@ -1,0 +1,75 @@
+@import "src/scss/admin/_admin-header.scss";
+@import "src/scss/admin/_admin-form.scss";
+
+.avatar {
+  border-radius: 50%;
+}
+
+:host::ng-deep .panel-content {
+  .panel-body {
+    min-height: calc(100vh - 105px);
+  }
+}
+
+:host::ng-deep .load-results {
+  margin-top: calc(25vh);
+}
+
+.row-buttons {
+  padding-bottom: 4rem;
+}
+
+.success-submited {
+  text-align: center;
+  background: #fff;
+  min-height: calc(100vh - 90px);
+  padding-top: 25vh;
+
+  img {
+    max-width: 90px;
+  }
+
+  h3 {
+    color: #00537d;
+    font-size: 1.7rem;
+    font-weight: normal;
+  }
+
+  p {
+    max-width: 500px;
+    display: block;
+    margin: auto;
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+    color: #353535;
+  }
+}
+
+@media (max-width: 700px) {
+  button {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  .panel-body {
+    padding: 0px;
+  }
+
+  .avatar {
+    display: block;
+    margin: 0 auto;
+    max-width: 90px;
+  }
+
+  h3 {
+    display: none;
+  }
+
+  h1 {
+    margin-bottom: 0px !important;
+  }
+
+  .admin-header-breadcrumb {
+    display: none;
+  }
+}

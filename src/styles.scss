@@ -1,0 +1,42 @@
+@import "src/scss/_reset.scss";
+@import "src/scss/_variables.scss";
+@import "src/scss/bootstrap-grid.min.scss";
+@import "src/scss/animate.scss";
+@import "src/scss/_animation.scss";
+@import "src/scss/_buttons.scss";
+
+*{
+    font-family: 'Roboto', sans-serif;
+    outline: none !important;
+}
+html,
+body{
+    margin: 0px;
+    padding: 0px;
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+    border-style: none;
+}
+
+.form-group {
+  display: flex;
+  flex: 0 0 auto;
+  flex-flow: row wrap;
+  align-items: center;
+  margin-bottom: 0;
+
+  label{
+      display: inline-block;
+      width: 100%;
+  }
+}
+
+.form-control {
+  display: inline-block;
+  width: auto;
+  vertical-align: middle;
+}

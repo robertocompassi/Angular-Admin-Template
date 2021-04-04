@@ -1,0 +1,57 @@
+<app-card *ngIf="!showLoadingListMsg" class="animated fadeInDown">
+  <div class="list-page">
+    <div class="admin-header">
+      <div class="admin-header__title-page">
+        <div class="row">
+          <div class="col-12 col-md-12">
+            <h1>Usuários</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="admin-header-breadcrumb">
+      <ul>
+        <li><a routerLink="/admin" routerLinkActive="router-link-active">Administração</a></li>
+        <li><a routerLinkActive="router-link-active">Usuários</a></li>
+      </ul>
+    </div>
+  </div>
+</app-card>
+
+<div class="list-page__results animated fadeIn" #resultList>
+  <app-loading-spinner *ngIf="showLoadingListMsg">Carregando Usuários...</app-loading-spinner>
+  <div class="row">
+    <div class="col-12 col-md-6" *ngFor="let user of listUsers">
+      <div class="list-page__results__user-card" routerLink="/admin/usuarios/editar/{{user.id}}">
+        <div class="list-page__results__user-card__avatar" [style.background-image]="user.imageProfile"></div>
+        <div class="list-page__results__user-card__info">
+          <p class="list-page__results__user-card__info--name">{{user.first_name}} {{user.last_name}}</p>
+          <p class="list-page__results__user-card__info--email">{{user.email}}</p>
+        </div>
+        <button class="list-page__results__user-card--btn-details">Ver detalhes <img
+            src="/assets/images/right-arrow.svg"></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="no-results" *ngIf="!showLoadingListMsg && listUsers.length == 0">
+    <img src="/assets/images/not-found.svg" alt="">
+    <p>Nenhum usuário encontrado na página {{indexPage}}</p>
+  </div>
+
+</div>
+
+<div class="row" *ngIf="!showLoadingListMsg">
+  <div class="col-12 col-md-12">
+    <div class="list-page__results__pagination">
+      <button class="btn btn-outline-primary" (click)="changePage('back')">Anterior</button>
+      <div class="list-page__results__pagination--index">Página {{indexPage}} </div>
+      <button class="btn btn-outline-primary" (click)="changePage('next')">Próxima</button>
+    </div>
+  </div>
+</div>
+
+<app-generic-erro-dialog *ngIf="showGenericError">
+  <button (click)="getUsersList()" class="btn btn-primary btn-fw ">Tentar Novamente</button>
+</app-generic-erro-dialog>

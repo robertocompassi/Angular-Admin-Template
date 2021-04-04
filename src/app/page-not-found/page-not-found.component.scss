@@ -1,0 +1,31 @@
+.not-found{
+  text-align: center;
+  background-color: #edf2f7;
+  min-height: 100vh;
+  padding: 8rem;
+  img{
+    max-width: 120px;
+    display: block;
+    margin:  0 auto;
+  }
+  h2{
+    font-weight: 300;
+    font-size: 1.6rem;
+  }
+  button{
+    border-radius: 25px;
+    border: 0px;
+    color: #fff;
+    padding: 10px;
+    min-width: 50%;
+    font-weight: 500;
+    display: block;
+    margin: auto;
+    margin-top: 30px;
+    font-size: 1rem;
+    background-color: #143f57;
+    cursor: pointer;
+    max-width: 200px;
+    min-width: 200px;
+  }
+}

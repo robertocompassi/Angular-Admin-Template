@@ -1,0 +1,12 @@
+<div class="admin-wrapper">
+  <app-sidebar (sidebarStateEvent)="receiveSidebarState($event, mainContent)"></app-sidebar>
+
+  <div class="main-content open-sidebar" #mainContent>
+    <app-header></app-header>
+    <div class="page-content">
+      <ng-content></ng-content>
+
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

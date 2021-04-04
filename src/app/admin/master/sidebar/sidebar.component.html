@@ -1,0 +1,32 @@
+<div class="sidebar sidebar-open" #sidebar>
+  <div class="sidebar__header " routerLink="/admin">
+  </div>
+
+  <div class="sidebar__user">
+    <img src="{{userSidebar.ProfilePicture}}" alt="" class="sidebar__user__img-profile">
+    <div class="sidebar__user__details">
+      <strong class="sidebar__user__details__name">{{userSidebar.Name}}</strong>
+      <span class="sidebar__user__details__role">{{userSidebar.Email}}</span>
+    </div>
+  </div>
+
+  <div class="sidebar__nav ">
+    <ul class="sidebar__nav__ul-root">
+
+      <li class="sidebar__nav__menu-group">
+        <span class="sidebar__nav__menu-group__menu-title" routerLink="/admin/usuarios">
+          <img src="/assets/images/team.svg" class="icon-sidebar">
+          Usuários
+        </span>
+      </li>
+
+      <li class="sidebar__nav__menu-group hide-menu" (click)="toggleSidebar($event, sidebar)">
+        <span class="sidebar__nav__menu-group__menu-title">
+          <img src="/assets/images/hide.svg" class="icon-sidebar">
+          Ocultar Menu</span>
+        <ul class="sidebar__nav__menu-group__menu-child">
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>

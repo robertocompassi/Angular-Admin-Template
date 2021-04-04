@@ -1,0 +1,22 @@
+.panel-content {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	min-width: 0;
+	word-wrap: break-word;
+	background-color: #fff;
+	background-clip: border-box;
+	border: 1px solid rgba(0, 0, 0, 0.04);
+	border-radius: 0.15rem;
+	margin-bottom: 15px;
+
+	.panel-body {
+		padding: 1.88rem 1.81rem;
+		padding-bottom: 0;
+		@media (max-width: 700px) {
+			padding-top: 1rem;
+      padding-left: 1rem;
+
+		}
+	}
+}

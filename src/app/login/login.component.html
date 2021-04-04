@@ -1,0 +1,58 @@
+<div class="login-wrapper">
+  <div class="container">
+    <div class="login">
+      <div class="row">
+        <div class="col-12 col-md-5 col-background-img">
+          <div class="login__welcome">
+            <p>Acesso com seu e-mail e senha para acessar todos os recursos.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-7 col-form">
+          <div class="login__lg-group">
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+              <div class="form-group">
+                <label for="email_input">E-mail</label>
+                <input type="email" id="email_input" formControlName="email" value=''>
+                <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                  <div *ngIf="f.email.errors.required">Email é obrigatório</div>
+                  <div *ngIf="f.email.errors.pattern">Por favor, informe um e-mail valido.</div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="password_input">Senha</label>
+                <input type="password" id="password_input" formControlName="password">
+                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                  <div *ngIf="f.password.errors.required">A senha é obrigatória.</div>
+                  <div *ngIf="f.password.errors.minlength">A senha deve conter pelo 6 caracteres</div>
+                </div>
+              </div>
+              <button class="login__lg-group__btn-login" type="submit">Login</button>
+            </form>
+
+            <div class="login-load" *ngIf="showLoad">
+              <img src="/assets/images/loading.gif" alt=''>
+              <p>Verificando...</p>
+            </div>
+
+            <div class="continue-session" *ngIf="presentSession">
+              <p>Continue como {{userSession.Name}} </p>
+              <p class="email">{{userSession.Email}}</p>
+              <img src="{{userSession.ProfilePicture}}" class='userSession-picture'>
+              <button class="login__lg-group__btn-login" routerLink="/admin">Continue</button>
+
+              <a (click)="clearSession()" class='logoff'>Não sou eu</a>
+            </div>
+
+            <div class="error-zone" *ngIf="showDetailsError">
+              <p>{{errorMsg}}</p>
+              <button class="login__lg-group__btn-login" (click)='onRetryLogin()'>Tentar novamente</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
